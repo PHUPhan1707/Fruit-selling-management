@@ -31,9 +31,6 @@ const Login = () => {
 			{' '}
 			<div >
 				
-				 
-
-			
 				<div
 					className="w-full"
 					style={{

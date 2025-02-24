@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Explore from "../../components/ExploreFruit/ExploreFruit";
-
+  
 const AtManach = () => {
   const images = [
     "/src/assets/Banner1.png",
@@ -100,26 +100,45 @@ const AtManach = () => {
           height: "100%",
           backgroundColor: "#485935",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           padding: "60px",
+          marginTop: "-150px",  
+          position: "relative", 
+          zIndex: -1, 
         }}
       >
         <div
           style={{
+            margin: "100px 0 0 0 ",
             width: "756px",
             height: "72px",
             textAlign: "center",
             color: "#ECF5E1",
-            fontSize: 26,
-            fontFamily: "Poppins",
+            fontSize: 60,
+            fontFamily: "Bonheur Royale",
             fontWeight: "500",
             wordWrap: "break-word",
           }}
         >
-          At Manach, we're passionate about bringing the freshest, juiciest
-          fruits straight to your fingertips.
+          Live well and eat with passion
         </div>
+        <ul
+        style={{
+            fontSize: 15,
+            color: '#F0F0F0',
+            fontFamily: "Inter",
+            textAlign: "center",
+          }}> 
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut est odio.</li>
+          <li>Nullam placerat tortor diam. Pellentesque non augue in libero aliquet bibendum.</li>
+          <li>Nunc iaculis tincidunt mi, vitae lobortis sem consectetur a. Cras ut velit eu nisi scelerisque hendrerit. </li>
+          <li>Suspendisse eget tellus vel ipsum porttitor semper. Nunc tempus gravida auctor.</li></ul>
+          
+        
+          
+        
       </div>
       {/* Phần mô tả */}
       <div style={{ display: "flex", flexWrap: "wrap" }}>
