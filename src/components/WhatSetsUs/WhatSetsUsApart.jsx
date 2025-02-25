@@ -1,93 +1,126 @@
 const WhatSetsUsApart = () => {
 	return (
-		<div className="mt-[100px]">
+		<div className="mt-[100px]" >
 			{/*What sets us apart?*/}
 			<div
 				style={{
-					// width: '100vw',
 					height: '128vh',
-					backgroundColor: '#485935',
+					backgroundColor: 'white',
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
-					paddingLeft: '0px',
+					justifyContent: 'center',
+					padding: '20px'
 				}}
 			>
 				<div
 					style={{
-						width: '528px',
-						height: '106px',
-						color: 'green',
-						fontSize: '48px',
-						fontWeight: '700',
-						paddingTop: '107px',
-					   
+						width: '80%',
+						border: '5px solid black',   
+						borderRadius: '15px',  // Bo tròn góc
+						padding: '40px',
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						position: 'relative', // Để đặt tiêu đề bên ngoài
 					}}
 				>
-					Soak with freshness
-				</div>
-				<div
-					style={{
-						width: '700px',
-						height: '138px',
-						color: '#CADBB7',
-						fontFamily: 'Poppins',
-						fontSize: '20px',
-						fontStyle: 'normal',
-						fontWeight: '500',
-						lineHeight: 'normal',
-						whiteSpace: 'normal',
-						paddingTop: '100px',
-					}}
-				>
-					It's our constant dedication to sourcing from trusted suppliers who
-					value quality as much as we do. Any fruit products in Manach has a
-					specific origin, being gathered directly from farmers that value
-					premium quality and sustainable farming methods.
-				</div>
-				<div
-					style={{
-						display: 'grid',
-						gridTemplateColumns: 'repeat(3, minmax(300px, 1fr))',
-						paddingTop: '180px',
-						gridGap: '86px',
-					}}
-				>
-					<div className="m-auto h-fit w-full">
-						<img
-							src="/src/assets/pic_1.png"
-							alt=""
+					{/* Tiêu đề nhô lên trên viền */}
+					<div
+						style={{
+							position: 'absolute',
+							top: '-80px',
+							fontSize: '80px',
+							fontWeight: '700',
+							color: 'green',
+							fontFamily: 'Newsreader',
+							textAlign: 'center',
+							zIndex: 1, // Đặt trên viền
+						}}
+					>
+						Soak with freshness
+						<div
 							style={{
-								width: '300px',
-								height: '350px',
-								background:
-									'url(<path-to-image>) lightgray 50% / cover no-repeat',
+								position: 'absolute',
+								top: '50%', // Căn chính giữa chữ
+								left: -20,
+								right: -20,
+								
+								height: '40px', // Điều chỉnh độ dày để che viền
+								backgroundColor: 'white',
+								zIndex: -3, // Đặt dưới chữ nhưng trên viền
 							}}
 						/>
 					</div>
-					<div className="m-auto h-fit w-full">
-						<img
-							src="/src/assets/pic_2.png"
-							alt=""
-							style={{
-								width: '300px',
-								height: '350px',
-								background:
-									'url(<path-to-image>) lightgray 50% / cover no-repeat',
-							}}
-						/>
+
+
+
+					{/* Nội dung mô tả */}
+					<div
+						style={{
+							width: '700px',
+							height: '138px',
+							color: 'black',
+							fontFamily: 'Poppins',
+							fontSize: '20px',
+							fontWeight: '500',
+							textAlign: 'center',
+							marginTop: '40px',
+							
+						}}
+					>
+						It's our constant dedication to sourcing from trusted suppliers who
+						value quality as much as we do. Any fruit products in Manach has a
+						specific origin, being gathered directly from farmers that value
+						premium quality and sustainable farming methods.
 					</div>
-					<div className="m-auto h-fit w-full">
-						<img
-							src="/src/assets/pic_3.png"
-							alt=""
-							style={{
-								width: '300px',
-								height: '350px',
-								background:
-									'url(<path-to-image>) lightgray 50% / cover no-repeat',
-							}}
-						/>
+
+					{/* Hình ảnh */}
+					<div
+						style={{
+							display: 'grid',
+							gridTemplateColumns: 'repeat(3, minmax(300px, 1fr))',
+							marginTop: '60px',
+							gridGap: '50px',
+						}}
+					>
+						<div className="m-auto h-fit w-full">
+							<img
+								src="/src/assets/pic_1.png"
+								alt=""
+								style={{
+									width: '300px',
+									height: '350px',
+									borderRadius: '10px', // Bo tròn ảnh
+									objectFit: 'cover',  // Ảnh luôn vừa khung
+								}}
+							/>
+						</div>
+						<div className="m-auto h-fit w-full">
+							<img
+								src="/src/assets/pic_2.png"
+								alt=""
+								style={{
+									width: '300px',
+									height: '350px',
+									borderRadius: '10px',
+									objectFit: 'cover',
+								}}
+							/>
+						</div>
+						<div className="m-auto h-fit w-full">
+							<img
+								src="/src/assets/pic_3.png"
+								alt=""
+								style={{
+									width: '300px',
+									height: '350px',
+									borderRadius: '10px',
+									objectFit: 'cover',
+								}}
+							/>
+						</div>
+						
 					</div>
 				</div>
 			</div>
