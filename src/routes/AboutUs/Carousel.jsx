@@ -50,26 +50,7 @@ const Carousel = () => {
 				</div>
 			</div>
 
-			<img
-				className="absolute right-0 top-3/4"
-				src="/src/assets/2a 1.png"
-				alt=""
-				style={{
-					width: '41.36819rem',
-					height: '21.88319rem',
-					clipPath: 'inset(0 0% 9% 0)',
-				}}
-			/>
-			<img
-				className="absolute left-0 top-3/4"
-				src="/src/assets/2b 2.png"
-				alt=""
-				style={{
-					width: '28.75rem',
-					height: '28.4375rem',
-					clipPath: 'inset(0 0 30% 0)',
-				}}
-			/>
+			 
 		</div>
 	)
 }

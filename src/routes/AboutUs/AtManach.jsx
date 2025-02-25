@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Explore from "../../components/ExploreFruit/ExploreFruit";
-  
+
 const AtManach = () => {
   const images = [
     "/src/assets/Banner1.png",
@@ -25,7 +25,7 @@ const AtManach = () => {
   return (
     <div className="mt-[14.1rem]">
       {/* Banner giới thiệu */}
-      
+
 
       {/* Slider */}
       <div className="container mt-6">
@@ -36,27 +36,28 @@ const AtManach = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "40px",  
-            flexWrap: "wrap",  
+            gap: "40px",
+            flexWrap: "wrap",
           }}
         >
           <button className="btn btn-light" onClick={prevImage}>
             ◀
           </button>
 
-           
+
           <div
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               gap: "15px",
-              maxWidth: "100%",  
+              maxWidth: "100%",
               overflow: "hidden",
+              marginTop: "-80px",
             }}
           >
             {[...Array(4)].map((_, index) => {
-             
+
               const imageIndex = (startIndex + index) % totalImages;
               return (
                 <motion.div
@@ -67,9 +68,11 @@ const AtManach = () => {
                   transition={{ type: "spring", stiffness: 100 }}
                   className="card"
                   style={{
-                    width: "300px",
-                    height: "450px",
+                    width: "200px ",
+                    height: "425px",
                     flexShrink: 0,
+                    marginLeft: "25px",
+                    marginTop: index % 2 === 0 ? "120px" : "0",
                   }}
                 >
                   <img
@@ -80,7 +83,7 @@ const AtManach = () => {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      maxWidth: "100%", 
+                      maxWidth: "100%",
                     }}
                   />
                 </motion.div>
@@ -94,7 +97,7 @@ const AtManach = () => {
         </div>
       </div>
 
-      
+
       <div
         style={{
           height: "100%",
@@ -103,10 +106,10 @@ const AtManach = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: "60px",
-          marginTop: "-150px",  
-          position: "relative", 
-          zIndex: -1, 
+          padding: "50px",
+          marginTop: "-150px",
+          position: "relative",
+          zIndex: -1,
         }}
       >
         <div
@@ -125,20 +128,20 @@ const AtManach = () => {
           Live well and eat with passion
         </div>
         <ul
-        style={{
+          style={{
             fontSize: 15,
             color: '#F0F0F0',
             fontFamily: "Inter",
             textAlign: "center",
-          }}> 
+          }}>
           <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut est odio.</li>
           <li>Nullam placerat tortor diam. Pellentesque non augue in libero aliquet bibendum.</li>
           <li>Nunc iaculis tincidunt mi, vitae lobortis sem consectetur a. Cras ut velit eu nisi scelerisque hendrerit. </li>
           <li>Suspendisse eget tellus vel ipsum porttitor semper. Nunc tempus gravida auctor.</li></ul>
-          
-        
-          
-        
+
+
+
+
       </div>
       {/* Phần mô tả */}
       <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -170,7 +173,7 @@ const AtManach = () => {
           <div
             style={{
               width: "800px",
-              height: "100px",
+              height: "auto",
               color: "#485935",
               fontSize: 20,
               fontFamily: "Poppins",
@@ -179,8 +182,13 @@ const AtManach = () => {
               padding: "50px",
             }}
           >
-            Whether you crave the familiar comfort of a classic apple or the
-            exotic allure of a tropical mango, we've got you covered!
+            We believe in produce. Tasty produce. Produce like:<br />
+
+            Apples. Oranges. Limes. Lemons. Guavas. Carrots. Cucumbers. Jicamas. Cauliflowers. Brussels sprouts. Shallots. Japanese eggplants. Asparagus. Artichokes—Jerusalem artichokes, too. Radishes. Broccoli. Baby broccoli. Broccolini. Bok choy. Scallions. Ginger. Cherries. Raspberries. Cilantro. Parsley. Dill.
+            <br />
+            What are we forgetting?
+            <br />
+            Oh! Onions. Yams. Avocados. Lettuce. Arugula (to some, “rocket”). Persian cucumbers, in addition to aforementioned “normal” cucumbers. Artichokes. Zucchinis. Pumpkins. Squash (what some cultures call pumpkins). Sweet potatoes and potato-potatoes. Jackfruit. Monk fruit. Fruit of the Loom. Fruits of our labor (this website). Sorrel. Pineapple. Mango. Gooseberries. Blackberries. Tomatoes. Heirloom tomatoes. Beets. Chives. Corn. Endive. Escarole, which, we swear, we’re vendors of organic produce, but if you asked us to describe what escaroles are...
           </div>
         </div>
       </div>

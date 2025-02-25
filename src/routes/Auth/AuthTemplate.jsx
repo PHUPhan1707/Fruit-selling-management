@@ -5,25 +5,23 @@ import NeedHelps from '../../components/needHelps/needHelps'
 const AuthTemplate = () => {
 	return (
 		<div className="flex">
-			<div
-		 
-				 
+			<div 
 			>
 				<div className="absolute bottom-0">
 					<NeedHelps />
 				</div>
 			</div>
-			<div className="flex-1 flex justify-center items-center min-h-screen w-full"
+			<div className="flex-1 flex justify-center absolute items-center min-h-screen w-full"
 			    style={{	
 					backgroundImage: 'url(/src/assets/background_login.jpg)',
 					backgroundPosition: 'center',  
 					backgroundRepeat: 'no-repeat', 
 					backgroundSize: 'cover',
 					display: 'flex',
-					
-					
 					justifyContent: 'center',
-					alignItems: 'center',}}>
+					alignItems: 'center', 
+					zIndex: -1,  
+				}}>
 				<Outlet />
 			</div>
 		</div>

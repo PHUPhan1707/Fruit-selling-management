@@ -91,7 +91,7 @@ const Signup = () => {
 			</div>
 			<div>
 				<div
-					className="w-fit !bg-green_dark1 text-center align-middle"
+					className="w-fit bg-[rgb(23,51,52)] text-center align-middle"
 					style={{
 						width: '60rem',
 						height: '36.375rem',
@@ -140,16 +140,23 @@ const Signup = () => {
 									>
 										Name
 									</span>
-									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
+									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
+											style={{
+												color: 'var(--Offwhite, #FFF)',
+												fontSize: '1.25rem',
+												fontWeight: 600,
+											}}
 											name="name"
-											className="h-[2.5rem] grow text-center text-[1.5rem]"
-											placeholder="Enter your name"
+											
+										className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+											placeholder="Enter your username"
 											onChange={formik.handleChange}
 											value={formik.values.name}
 										/>
 									</label>
+	 
 									{formik.errors.name && formik.touched.name && (
 										<p className="text-red-500">{formik.errors.name}</p>
 									)}
@@ -164,11 +171,11 @@ const Signup = () => {
 									>
 										Username
 									</span>
-									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
+									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
 											name="username"
-											className="h-[2.5rem] grow text-center text-[1.5rem]"
+											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your username"
 											onChange={formik.handleChange}
 											value={formik.values.username}
@@ -188,11 +195,11 @@ const Signup = () => {
 									>
 										Password
 									</span>
-									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
+									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
 										<input
 											type="password"
 											name="password"
-											className="h-[2.5rem] grow text-center text-[1.5rem]"
+											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your password"
 											onChange={formik.handleChange}
 											value={formik.values.password}
@@ -214,11 +221,11 @@ const Signup = () => {
 									>
 										Email
 									</span>
-									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
+									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
 										<input
 											type="email"
 											name="email"
-											className="h-[2.5rem] grow text-center text-[1.5rem]"
+											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your email"
 											onChange={formik.handleChange}
 											value={formik.values.email}
@@ -238,11 +245,11 @@ const Signup = () => {
 									>
 										Payment
 									</span>
-									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
+									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
 											name="payment"
-											className="h-[2.5rem] grow text-center text-[1.5rem]"
+											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your payment"
 											onChange={formik.handleChange}
 											value={formik.values.payment}
@@ -262,11 +269,11 @@ const Signup = () => {
 									>
 										Phone
 									</span>
-									<label className="input input-bordered flex items-center gap-2 rounded-xl !bg-offwhite px-8 py-2 text-center">
+									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
 											name="phone"
-											className="h-[2.5rem] grow text-center text-[1.5rem]"
+											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your phone"
 											onChange={formik.handleChange}
 											value={formik.values.phone}

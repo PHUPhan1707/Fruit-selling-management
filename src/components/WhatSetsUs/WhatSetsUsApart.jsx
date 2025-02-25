@@ -9,21 +9,22 @@ const WhatSetsUsApart = () => {
 					backgroundColor: '#485935',
 					display: 'flex',
 					flexDirection: 'column',
-					alignItems: 'flex-start',
-					paddingLeft: '170px',
+					alignItems: 'center',
+					paddingLeft: '0px',
 				}}
 			>
 				<div
 					style={{
 						width: '528px',
 						height: '106px',
-						color: '#ECF5E1',
+						color: 'green',
 						fontSize: '48px',
 						fontWeight: '700',
 						paddingTop: '107px',
+					   
 					}}
 				>
-					What sets us apart?
+					Soak with freshness
 				</div>
 				<div
 					style={{
