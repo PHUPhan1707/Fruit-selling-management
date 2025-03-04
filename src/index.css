@@ -1,8 +1,9 @@
 @import '@fontsource/poppins';
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter', sans-serif;
 }
