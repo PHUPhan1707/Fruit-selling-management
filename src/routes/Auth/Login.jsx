@@ -27,116 +27,65 @@ const Login = () => {
 	}
 
 	return (
-		<div>
-			{' '}
-			<div>
-				<div
-					className="w-full"
-					style={{
-						color: 'rgb(23, 51, 52)',
-						fontSize: '3.125rem',
-						fontWeight: 600,
-					}}
-				>
+		<div className="flex justify-center items-center h-screen bg-gray-100">
+			<div className="flex bg-white shadow-lg rounded-lg overflow-hidden w-[70rem] h-[35rem]">
+				<div className="w-2/3 bg-cover bg-center" 
+					style={{ backgroundImage: "url('/src/assets/bg-login.png')" }}>
+					 
 				</div>
-				<div>
-					<NavLink
-						to={'/auth/welcome'}
-						className={'rounded-xl border border-[rgb(23,51,52)] px-4 py-2'}
-					>
-						<span className="text-[rgb(23,51,52)]">Back</span>
-					</NavLink>
-				</div>
-				<div
-					className="!bg-[rgb(23,51,52)] text-center align-middle"
-					style={{
-						width: '37.6875rem',
-						height: '36.375rem',
-						marginTop: '1.5rem',
-						borderRadius: '0.935rem',
-					}}
-				>
-					<div className="p-8 text-center">
-						<img
-							className="mx-auto rounded-full bg-offwhite"
-							style={{
-								height: '7.4375rem',
-								width: '7.4375rem',
-							}}
-							src="/src/assets/sumbol.png"
-							alt=""
-						/>
-						<span style={{ color: 'var(--Offwhite, #FFF)' }}>
-							<div
-								style={{
-									textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-									fontSize: '3.125rem',
-									fontWeight: 800,
-								}}
-							>
-								Manach
-							</div>
-							<span style={{ fontSize: '0.875rem', fontWeight: 400 }}>
-								Store Management App
-							</span>
-						</span>
+				
+				<div className="w-1/2 p-8 flex flex-col justify-center bg-[rgb(255,255,255)] text-white">
+					<div className="text-center">
+						<img className="mx-auto rounded-full" src="/src/assets/sumbol.png" alt="Logo" width="80" />
+						<h1 className="text-3xl font-bold mt-2">Manach</h1>
+						<p className="text-sm">Store Management App</p>
 					</div>
 
-					{/* Form input  */}
-					<div className="form-login">
-						<div className="mx-auto w-5/6 space-y-4"
-						>
-							<label className="mx-12 flex items-center gap-2 rounded-full border-2 border-[rgba(255,255,255,0.8)] px-8 py-4 text-center">
-
-								<i className="fa fa-user text-[2rem] text-white"></i>
-								<input
-									type="text"
-									style={{
-										color: 'var(--Offwhite, #FFF)',
-										fontSize: '1.25rem',
-										fontWeight: 600,
-									}}
-									className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
-									placeholder="Username"
-									onChange={(e) => {
-										setUsername(e.target.value)
-									}}
-								/>
-							</label>
-							<label className="mx-12 flex items-center gap-2 rounded-full border-2 border-[rgba(255,255,255,0.8)] px-8 py-4 text-center">
-
-								<i className="fa fa-key text-[2rem] text-white"></i>
-								<input
-									type="password"
-									style={{
-										color: 'var(--Offwhite, #FFF)',
-										fontSize: '1.25rem',
-										fontWeight: 600,
-									}}
-									className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
-									placeholder="Password"
-									onChange={(e) => {
-										setPassword(e.target.value)
-									}}
-								/>
-							</label>
+					{/* Form nhập liệu */}
+					<div className="mt-6 space-y-4">
+						<div className="flex items-center border-2 border-white rounded-full px-4 py-3">
+							<i className="fa fa-user text-lg"></i>
+							<input
+								type="text"
+								className="bg-transparent w-full text-white text-lg outline-none pl-4"
+								placeholder="Username"
+								onChange={(e) => setUsername(e.target.value)}
+							/>
+						</div>
+						<div className="flex items-center border-2 border-white rounded-full px-4 py-3">
+							<i className="fa fa-key text-lg"></i>
+							<input
+								type="password"
+								className="bg-transparent w-full text-white text-lg outline-none pl-4"
+								placeholder="Password"
+								onChange={(e) => setPassword(e.target.value)}
+							/>
 						</div>
 					</div>
 
-
-					<div className="mt-10 space-y-10 px-44" onClick={handleLogin}>
-						<NavLink className="border z-50 bg-[rgb(66,107,31)] px-12 py-5 text-[1.5rem] font-bold text-[rgb(255,255,255)] border-[rgb(66,107,31)] rounded-full">
+					{/* Nút đăng nhập */}
+					<div className="mt-6 text-center">
+						<button
+							className="bg-green-600 w-full py-3 rounded-full text-white text-lg font-bold hover:bg-green-700"
+							onClick={handleLogin}
+						>
 							Login
-						</NavLink>
+						</button>
 					</div>
 
+					{/* Quay lại */}
+					<div className="mt-4 text-center">
+						<NavLink to="/auth/welcome" className="text-white underline">
+							Back
+						</NavLink>
+					</div>
 				</div>
+
+				
+				
 			</div>
 		</div>
 	)
-
-
-
 }
 
 export default Login

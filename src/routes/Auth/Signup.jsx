@@ -57,74 +57,21 @@ const Signup = () => {
 	})
 
 	return (
-		<div>
-			<div className="flex h-[5rem]">
-				<img
-					className="mx-auto mr-4 rounded-full bg-offwhite shadow-md"
-					style={{
-						height: '5rem',
-						width: '5rem',
-					}}
-					src="/src/assets/sumbol.png"
-					alt=""
-				/>
-				<div className="h-fit w-full">
-					<div
-						style={{
-							color: 'var(--green-dark1, #485935)',
-							textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-							fontSize: '2.75rem',
-							fontWeight: 800,
-						}}
-					>
-						Manach
-					</div>
-					<span
-						style={{
-							fontSize: ' 0.875rem',
-							fontWeight: 400,
-						}}
-					>
-						Store Management App
-					</span>
+		<div className="flex justify-center items-center h-screen bg-gray-100">
+			<div className="flex bg-white shadow-lg rounded-lg overflow-hidden w-[70rem] h-[35rem]">
+				{/* Hình nền bên trái */}
+				<div className="w-2/3 bg-cover bg-center" 
+					style={{ backgroundImage: "url('/src/assets/bg-login.png')" }}>
 				</div>
-			</div>
-			<div>
-				<div
-					className="w-fit bg-[rgb(23,51,52)] text-center align-middle"
-					style={{
-						width: '60rem',
-						height: '36.375rem',
-						marginTop: '1.5rem',
-						borderRadius: '0.935rem',
-					}}
-				>
-					<div className="p-6 text-left">
-						<div>
-							<NavLink
-								to={'/auth/welcome'}
-								className={'rounded-xl border border-offwhite px-4 py-2'}
-							>
-								<span className="text-offwhite">Back</span>
-							</NavLink>
-						</div>
-					</div>
 
-					<div
-						style={{
-							color: 'var(--Offwhite, #FFF)',
-							textAlign: 'center',
-							textShadow: '4px 4px 4px rgba(0, 0, 0, 0.25)',
-							fontSize: '1.875rem',
-							fontWeight: 700,
-						}}
-					>
-						<span className="!w-[36.3125rem]">
-							Fill in these information to create
-							<br />
-							your account!
-						</span>
-					</div>
+				{/* Nội dung đăng ký bên phải */}
+				<div className="w-1/2 p-8 flex flex-col justify-center bg-[rgb(255,255,255)] text-white">
+					{/* <div className="text-center">
+						<img className="mx-auto rounded-full" src="/src/assets/sumbol.png" alt="Logo" width="80" />
+						<h1 className="text-3xl font-bold mt-2">Manach</h1>
+						<p className="text-sm">Store Management App</p>
+					</div> */}
+
 
 					{/* Form input  */}
 					<form onSubmit={formik.handleSubmit} className="form-login mt-4">
@@ -133,24 +80,24 @@ const Signup = () => {
 								<div className="mx-12 text-left">
 									<span
 										style={{
-											color: 'var(--Offwhite, #FFF)',
-											fontSize: '1.25rem',
-											fontWeight: 600,
+											color: 'black',
+											fontSize: '1rem',
+											fontWeight: 300,
 										}}
 									>
 										Name
 									</span>
-									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
+									<label className=" flex w-50 items-center rounded-full border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
 											style={{
-												color: 'var(--Offwhite, #FFF)',
-												fontSize: '1.25rem',
-												fontWeight: 600,
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
 											}}
 											name="name"
 											
-										className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+										className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your username"
 											onChange={formik.handleChange}
 											value={formik.values.name}
@@ -164,18 +111,23 @@ const Signup = () => {
 								<div className="mx-12 text-left">
 									<span
 										style={{
-											color: 'var(--Offwhite, #FFF)',
-											fontSize: '1.25rem',
-											fontWeight: 600,
+											color: 'black',
+											fontSize: '1rem',
+											fontWeight: 300,
 										}}
 									>
 										Username
 									</span>
-									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
+									<label className=" flex w-50 items-center rounded-full border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 										<input
-											type="text"
+											type="text" 
+											style={{
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
+											}}
 											name="username"
-											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+											className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your username"
 											onChange={formik.handleChange}
 											value={formik.values.username}
@@ -188,18 +140,23 @@ const Signup = () => {
 								<div className="mx-12 text-left">
 									<span
 										style={{
-											color: 'var(--Offwhite, #FFF)',
-											fontSize: '1.25rem',
-											fontWeight: 600,
+											color: 'black',
+											fontSize: '1rem',
+											fontWeight: 300,
 										}}
 									>
 										Password
 									</span>
-									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
+									<label className=" flex w-50 items-center rounded-full border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 										<input
 											type="password"
+											style={{
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
+											}}
 											name="password"
-											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+											className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your password"
 											onChange={formik.handleChange}
 											value={formik.values.password}
@@ -209,23 +166,26 @@ const Signup = () => {
 										<p className="text-red-500">{formik.errors.password}</p>
 									)}
 								</div>
-							</div>
-							<div className="mx-auto w-5/6 space-y-4">
 								<div className="mx-12 text-left">
 									<span
 										style={{
-											color: 'var(--Offwhite, #FFF)',
-											fontSize: '1.25rem',
-											fontWeight: 600,
+											color: 'black',
+											fontSize: '1rem',
+											fontWeight: 300,
 										}}
 									>
 										Email
 									</span>
-									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
+									<label className=" flex w-50 items-center rounded-full border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 										<input
 											type="email"
+											style={{
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
+											}}
 											name="email"
-											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+											className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your email"
 											onChange={formik.handleChange}
 											value={formik.values.email}
@@ -237,19 +197,24 @@ const Signup = () => {
 								</div>
 								<div className="mx-12 text-left">
 									<span
-										style={{
-											color: 'var(--Offwhite, #FFF)',
-											fontSize: '1.25rem',
-											fontWeight: 600,
-										}}
+									style={{
+										color: 'black',
+										fontSize: '1rem',
+										fontWeight: 300,
+									}}
 									>
 										Payment
 									</span>
-									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
+									<label className=" flex w-50 items-center rounded-full border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
+											style={{
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
+											}}
 											name="payment"
-											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+											className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your payment"
 											onChange={formik.handleChange}
 											value={formik.values.payment}
@@ -262,18 +227,23 @@ const Signup = () => {
 								<div className="mx-12 text-left">
 									<span
 										style={{
-											color: 'var(--Offwhite, #FFF)',
-											fontSize: '1.25rem',
-											fontWeight: 600,
+											color: 'black',
+											fontSize: '1rem',
+											fontWeight: 300,
 										}}
 									>
 										Phone
 									</span>
-									<label className=" flex w-96 items-center rounded-full border-2 border-[rgba(255,255,255,0.8)] px-2 py-1 text-center">
+									<label className=" flex w-50 items-center rounded-full border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 										<input
 											type="text"
+											style={{
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
+											}}
 											name="phone"
-											className="h-[2.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
+											className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
 											placeholder="Enter your phone"
 											onChange={formik.handleChange}
 											value={formik.values.phone}
