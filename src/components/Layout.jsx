@@ -19,8 +19,8 @@ function Layout({ children }) {
 
 	const renderFlexDiv = !isAuthPage ? (
 		<div className="flex">
-			<div className="fixed w-[20%]">{renderMenu && <Menu />}</div>
-			<div className="ml-[20%] w-[80%]">{children}</div>
+			<div className="fixed w-[15%]">{renderMenu && <Menu />}</div>
+			<div className="ml-[15%] w-[85%] mt-[80px]">{children}</div>
 		</div>
 	) : (
 		children

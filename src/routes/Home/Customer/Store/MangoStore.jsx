@@ -5,16 +5,20 @@ import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
 import ReviewMango from '../../../../components/Review/ReviewMango'
-
+import Header from '../../../../components/Header/Header'
+import { useSelector } from 'react-redux';
 const MangoStore = () => {
 	const navigate = useNavigate()
-
+	const { roleName } = useSelector(
+		(state) => state.userReducer,
+	)
 	const handleBackClick = () => {
 		navigate('/customer/store')
 	}
 
 	return (
 		<div>
+			<Header roleName={roleName} />
 			<div className="flex">
 				<div className="w-full justify-between p-16">
 					<div

@@ -9,7 +9,7 @@ import { logOutAction } from '../redux/userReducer/userReducer'
 import { getInfor } from '../redux/userReducer/userThunk'
 
 // NavItem
-const NavItemCustomer = [
+export const NavItemCustomer = [
 	{
 		name: 'Home',
 		link: '/customer/home',
@@ -19,6 +19,15 @@ const NavItemCustomer = [
 		name: 'Store',
 		link: '/customer/store',
 		icon: 'shopping-cart',
+		subItems: [
+            { name: 'Banana', link: '/customer/store/banana-store' },
+            { name: 'Mango', link: '/customer/store/mango-store' },
+            { name: 'Pineapple', link: '/customer/store/pineapple-store' },
+            { name: 'Coconut', link: '/customer/store/coconut-store' },
+            { name: 'Papaya', link: '/customer/store/papaya-store' },
+            { name: 'Durian', link: '/customer/store/durian-store' },
+            { name: 'Berries', link: '/customer/store/berries-store' },
+        ],
 	},
 	{
 		name: 'Order',
@@ -41,7 +50,7 @@ const NavItemCustomer = [
 		icon: 'sign-out-alt',
 	},
 ]
-const NavItemAdminn = [
+export const NavItemAdminn = [
 	{
 		name: 'Home',
 		link: '/admin/home',
@@ -98,7 +107,7 @@ const Menu = () => {
 	}
 
 	return (
-		<div className="sticky flex h-screen w-full flex-col items-start justify-between bg-green_dark1">
+		<div className="relative sticky flex h-screen w-full flex-col items-start gap-[100px] bg-green_dark1">
 			<div className="flex items-center p-2">
 				<img
 					src="/src/assets/sumbol.png"
@@ -111,7 +120,7 @@ const Menu = () => {
 					</span>
 				</div>
 			</div>
-			{inforUser ? (
+			{/* {inforUser ? (
 				<div className="flex space-x-4 px-4">
 					<img
 						src="/src/assets/userAvtG.jpg"
@@ -123,7 +132,7 @@ const Menu = () => {
 						<span className="text-[0.7rem]">{roleName}</span>
 					</div>
 				</div>
-			) : null}
+			) : null} */}
 			<div className="w-full">
 				{menu.map((item, index) =>
 					item.name === 'Logout' ? (
@@ -131,15 +140,13 @@ const Menu = () => {
 							key={index}
 							to={item.link}
 							onClick={handleLogoutClick}
-							className={`block w-full space-x-4 p-4 ${
-								location.pathname === item.link
+							className={`block w-full space-x-4 p-4 ${location.pathname === item.link
 									? 'no-hover text-white bg-green_light3'
 									: 'text-offwhite'
-							} ${
-								location.pathname === item.link
+								} ${location.pathname === item.link
 									? ''
 									: 'hover:bg-green_light3 hover:text-green_dark1'
-							}`}
+								}`}
 							style={{ transition: 'ease-in-out 0.3s' }}
 						>
 							<i className={`fa fa-${item.icon} mr-4`}></i>
@@ -149,15 +156,13 @@ const Menu = () => {
 						<Link
 							key={index}
 							to={item.link}
-							className={`block w-full space-x-4 p-4 ${
-								location.pathname === item.link
+							className={`block w-full space-x-4 p-4 ${location.pathname === item.link
 									? 'no-hover text-white bg-green_light3'
 									: 'text-offwhite'
-							} ${
-								location.pathname === item.link
+								} ${location.pathname === item.link
 									? ''
 									: 'hover:bg-green_light3 hover:text-green_dark1'
-							}`}
+								}`}
 							style={{ transition: 'ease-in-out 0.3s' }}
 						>
 							<i className={`fa fa-${item.icon} mr-4`}></i>
@@ -166,7 +171,9 @@ const Menu = () => {
 					),
 				)}
 			</div>
-			<NeedHelps />
+			<div className="absolute bottom-5 right-0 translate-x-1/2">
+				<NeedHelps />
+			</div>
 		</div>
 	)
 }

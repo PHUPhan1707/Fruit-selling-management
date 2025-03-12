@@ -5,10 +5,13 @@ import ExploreFruit from '../../../../components/ExploreFruit/ExploreFruit'
 import ExploreSupplier from '../../../../components/ExploreSupplier/ExploreSupplier'
 import Daily from '../../../../components/DailyDeals/DailyDeals'
 import ReviewPineapple from '../../../../components/Review/ReviewPineapple'
-
+import Header from '../../../../components/Header/Header'
+import { useSelector } from 'react-redux';
 const PineappleStore = () => {
 	const navigate = useNavigate()
-
+	const { roleName } = useSelector(
+		(state) => state.userReducer,
+	)
 	const handleBackClick = () => {
 		navigate('/customer/store')
 	}
@@ -19,6 +22,7 @@ const PineappleStore = () => {
 
 	return (
 		<div>
+			<Header roleName={roleName} />
 			<div className="flex">
 				<div className="w-full justify-between p-16">
 					<div

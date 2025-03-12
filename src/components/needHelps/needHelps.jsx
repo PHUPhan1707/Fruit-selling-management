@@ -22,7 +22,7 @@ const NeedHelps = () => {
 
 	return (
 		<div className="w-full p-2">
-			<div className="relative mx-auto h-[12.0625rem] w-[14.5625rem]">
+			<div className="relative h-[12.0625rem] w-[14.5625rem]">
 				{/* background */}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ const NeedHelps = () => {
 					height="193"
 					viewBox="0 0 233 193"
 					fill="#93A267"
-					className={`rounded-[15px] bg-offwhite`}
+					className={`rounded-[15px] bg-[#CFCFCA]`}
 				>
 					<path
 						d="M6.52457 -8.02695L39.6418 -9.97005C64.8458 -11.4489 72.6534 23.5386 49.2118 32.9153C40.164 36.5344 34.5225 45.6183 35.2894 55.3328L35.9609 63.8379C37.6975 85.8354 14.3251 100.976 -5.04024 90.3982C-13.9548 85.5289 -19.5 76.1815 -19.5 66.0238V19.5693C-19.5 4.93102 -8.08859 -7.16955 6.52457 -8.02695Z"
@@ -157,7 +157,7 @@ const NeedHelps = () => {
 						</div>
 						<div
 							style={{
-								color: 'var(--Grey-dark1, #9C9C9C)',
+								color: 'var(--Grey-dark1, #000)',
 								textAlign: 'center',
 								fontFamily: 'Poppins',
 								fontSize: '0.75rem',
@@ -166,7 +166,7 @@ const NeedHelps = () => {
 								lineHeight: 'normal',
 							}}
 						>
-							If you have any complaints click here and let us know.
+							If you have any question please click here and let us know.
 						</div>
 					</div>
 				</NavLink>

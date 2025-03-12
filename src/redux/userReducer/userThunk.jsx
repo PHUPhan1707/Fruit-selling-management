@@ -50,3 +50,15 @@ export const postSignUp = createAsyncThunk(
 		}
 	},
 )
+
+export const updatePassword = (data) => async (dispatch) => {
+	try {
+	  const response = await axios.put(`http://localhost:8080/users/${data.id}/password/`, {
+		currentPassword: data.currentPassword,
+		newPassword: data.newPassword,
+	  });
+	  return response.data;
+	} catch (error) {
+	  throw error.response.data;
+	}
+  };
