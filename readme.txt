@@ -15,7 +15,7 @@ docker run --name manach -e MYSQL_ROOT_PASSWORD=1234 -d -p 3307:3306 mysql
 }
 -> Connect
 
-3/ create new database name: db_manach
+3/ create new database name:  
 
 4/ import the sql file in discord: db_manach.sql
 
