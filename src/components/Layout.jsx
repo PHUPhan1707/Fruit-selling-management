@@ -7,6 +7,7 @@ const notMenu = [
 	'/auth',
 	'/auth/welcome',
 	'/about-us',
+	'/whoarewe',
 	'/',
 	' ',
 ]

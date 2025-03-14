@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editProfile, getInfor, updatePassword } from '../../../../redux/userReducer/userThunk';
 
-const CusSetting = () => {
+const ASetting = () => {
     const [showForm, setShowForm] = useState(false);
     const [showPasswordForm, setShowPasswordForm] = useState(false);
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const CusSetting = () => {
     const [bank, setBank] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [confirmNewPassword, setConfirmNewPassword] = useState(''); // New state for confirmation
+    const [confirmNewPassword, setConfirmNewPassword] = useState('');
 
     useEffect(() => {
         if (userId) {
@@ -43,18 +43,25 @@ const CusSetting = () => {
             infor: newInfor,
             id: userId,
         };
-        dispatch(editProfile(data)).then(() => {
-            dispatch(getInfor(userId));
-            setShowForm(false);
-        }).catch((error) => {
-            console.error('Failed to update profile:', error);
-        });
+        dispatch(editProfile(data))
+            .unwrap()
+            .then(() => {
+                dispatch(getInfor(userId));
+                setShowForm(false);
+            })
+            .catch((error) => {
+                console.error('Failed to update profile:', error);
+            });
     };
 
     const dispatchPasswordChange = () => {
-        // Validate that new password matches confirmation
         if (newPassword !== confirmNewPassword) {
             alert('New password and confirmation do not match');
+            return;
+        }
+
+        if (currentPassword === newPassword) {
+            alert('New password cannot be the same as the current password');
             return;
         }
 
@@ -63,56 +70,65 @@ const CusSetting = () => {
             currentPassword,
             newPassword,
         };
-        dispatch(updatePassword(data)).then(() => {
-            setCurrentPassword('');
-            setNewPassword('');
-            setConfirmNewPassword(''); // Reset confirmation field
-            setShowPasswordForm(false);
-            alert('Password updated successfully');
-        }).catch((error) => {
-            console.error('Failed to update password:', error);
-            alert('Failed to update password: ' + (error.message || 'Unknown error'));
-        });
+        dispatch(updatePassword(data))
+            .unwrap()
+            .then(() => {
+                setCurrentPassword('');
+                setNewPassword('');
+                setConfirmNewPassword('');
+                setShowPasswordForm(false);
+                alert('Password updated successfully');
+            })
+            .catch((error) => {
+                console.error('Failed to update password:', error);
+                alert('Failed to update password: ' + (error.message || 'Unknown error'));
+            });
     };
 
     return (
-        <div className="m-8">
-            {/* Title */}
-            <div className="flex justify-between align-middle">
-                <div className="text-[1.5rem] font-extrabold leading-[3.5rem] text-green_dark1">
-                    Profile
-                </div>
-                <div>
-                    <label className="input input-bordered flex items-center gap-2 rounded-xl bg-green_light3 px-4 py-2">
-                        <input
-                            type="text"
-                            className="grow bg-green_light3 text-green placeholder-green"
-                            placeholder="Search here"
-                        />
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            fill="currentColor"
-                            className="h-4 w-4 opacity-70"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                                clipRule="evenodd"
-                            />
+        <div className="m-8 flex">
+            {/* Menu */}
+            {/* <div className="mr-8 mt-4 w-[15%]">
+                <ul className="rounded-lg">
+                    <li className="flex items-center p-4 bg-green_dark1 text-offwhite cursor-pointer hover:bg-green_dark1/90 gap-[10px] rounded-tl-lg rounded-tr-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
                         </svg>
-                    </label>
-                </div>
-            </div>
+                        <span className="text-lg font-medium">Profile Settings</span>
+                    </li>
+                    <li className="flex items-center p-4 bg-green_dark1 text-offwhite cursor-pointer hover:bg-green_dark1/90 gap-[10px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span className="text-lg font-medium">Password</span>
+                    </li>
+                    <li className="flex items-center p-4 bg-green_dark1 text-offwhite cursor-pointer hover:bg-green_dark1/90 gap-[10px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span className="text-lg font-medium">Notifications</span>
+                    </li>
+                    <li className="flex items-center p-4 bg-green_dark1 text-offwhite cursor-pointer hover:bg-green_dark1/90 gap-[10px] rounded-bl-lg rounded-br-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span className="text-lg font-medium">Verification</span>
+                    </li>
+                </ul>
+            </div> */}
 
             {/* Body */}
             <div
-                className={`${!showForm && !showPasswordForm ? 'block' : 'hidden'} mt-4 rounded-lg border border-grey_light1 px-12 py-2`}
+                className={`${!showForm && !showPasswordForm ? 'block' : 'hidden'} mt-4 rounded-lg border border-grey_light1 px-12 py-2 w-full`}
             >
                 <div className="flex items-center space-x-4">
                     <img
                         src="/src/assets/userAvtG.jpg"
-                        className="h-[4rem] w-[4rem] rounded-full"
+                        className="h-[12rem] w-[12rem] rounded-full"
                         alt=""
                     />
                     <div>
@@ -122,7 +138,6 @@ const CusSetting = () => {
                         <span className="text-green_dark1">Customer</span>
                     </div>
                 </div>
-
                 <div className="mt-4 grid grid-cols-2 gap-12">
                     <div className="rounded-lg border border-grey_light1 px-8 py-4 shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex items-center space-x-4 text-green_dark1">
@@ -136,20 +151,18 @@ const CusSetting = () => {
                             {inforUser?.phone}
                         </div>
                     </div>
-
                     <div className="rounded-lg border border-grey_light1 px-8 py-4 shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex items-center space-x-4 text-green_dark1">
                             <i className="fa fa-user-shield text-[2rem]"></i>
                             <div>
                                 <div className="text-[1.5rem]">Customer ID</div>
-                                <span className="italic">Your current Custommer Id :</span>
+                                <span className="italic">Your current Customer Id :</span>
                             </div>
                         </div>
                         <div className="my-4 text-center text-[1.2rem] font-light text-green_dark1">
                             C-203-079-21-{inforUser?.user_id}
                         </div>
                     </div>
-
                     <div className="rounded-lg border border-grey_light1 px-8 py-4 shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex items-center space-x-4 text-green_dark1">
                             <i className="fa fa-envelope text-[2rem]"></i>
@@ -162,7 +175,6 @@ const CusSetting = () => {
                             {inforUser?.email}
                         </div>
                     </div>
-
                     <div className="rounded-lg border border-grey_light1 px-8 py-4 shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)]">
                         <div className="flex items-center space-x-4 text-green_dark1">
                             <i className="fa fa-users-cog text-[2rem]"></i>
@@ -176,7 +188,6 @@ const CusSetting = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className="my-8 flex justify-center space-x-8">
                     <button
                         onClick={() => setShowForm(true)}
@@ -184,18 +195,18 @@ const CusSetting = () => {
                     >
                         Change Profile
                     </button>
-                    {/* <button
+                    <button
                         onClick={() => setShowPasswordForm(true)}
                         className="rounded-lg border px-8 py-2 text-[1.25rem] font-bold text-green_dark1 hover:bg-green_dark1 hover:text-offwhite"
                     >
                         Change Password
-                    </button> */}
+                    </button>
                 </div>
             </div>
 
             {/* Change profile form */}
-            <div className={`${showForm ? 'block' : 'hidden'}`}>
-                <div className="fixed left-1/3 top-1/4 w-[50rem] rounded-2xl bg-green_dark1">
+            <div className={`${showForm ? 'flex' : 'hidden'} w-[85%] justify-center mt-4`}>
+                <div className="w-[50rem] rounded-2xl bg-green_dark1">
                     <div className="m-8 mx-auto w-5/6 space-y-4">
                         <div className="flex justify-between">
                             <div className="text-[1.5rem] font-semibold text-offwhite">
@@ -258,8 +269,8 @@ const CusSetting = () => {
             </div>
 
             {/* Change password form */}
-            <div className={`${showPasswordForm ? 'block' : 'hidden'}`}>
-                <div className="fixed left-1/3 top-1/4 w-[50rem] rounded-2xl bg-green_dark1">
+            <div className={`${showPasswordForm ? 'flex' : 'hidden'} w-[85%] justify-center mt-4`}>
+                <div className="w-[50rem] rounded-2xl bg-green_dark1">
                     <div className="m-8 mx-auto w-5/6 space-y-4">
                         <div className="flex justify-between">
                             <div className="text-[1.5rem] font-semibold text-offwhite">
@@ -324,4 +335,4 @@ const CusSetting = () => {
     );
 };
 
-export default CusSetting;
+export default ASetting;

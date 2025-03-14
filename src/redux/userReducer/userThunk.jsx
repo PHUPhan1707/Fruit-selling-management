@@ -51,14 +51,20 @@ export const postSignUp = createAsyncThunk(
 	},
 )
 
-export const updatePassword = (data) => async (dispatch) => {
-	try {
-	  const response = await axios.put(`http://localhost:8080/users/${data.id}/password/`, {
-		currentPassword: data.currentPassword,
-		newPassword: data.newPassword,
-	  });
-	  return response.data;
-	} catch (error) {
-	  throw error.response.data;
+export const updatePassword = createAsyncThunk(
+	'userReducer/updatePassword',
+	async (payload, { rejectWithValue }) => {
+		try {
+			const data = await userService.updatePassword(payload.id, {
+				currentPassword: payload.currentPassword,
+				newPassword: payload.newPassword,
+			});
+			message.success('Password updated successfully');
+			return data;
+		} catch (error) {
+			console.error('Error updating password:', error);
+			message.error('Failed to update password');
+			return rejectWithValue(error.response?.data || error.message);
+		}
 	}
-  };
+);

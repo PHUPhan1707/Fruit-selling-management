@@ -90,7 +90,7 @@ const Header = ({ roleName }) => {
     const settingsLink = menu.find(item => item.name === 'Setting')?.link || '#';
 
     return (
-        <div className="fixed top-0 w-[85%] bg-green_dark1 text-white shadow-lg z-50 mx-2">
+        <div className="fixed top-0 w-[85%] bg-green_dark1 text-white shadow-lg z-50 mx-2 rounded-bl-lg">
             <header>
                 <nav className="px-6 py-4">
                     <div className="flex items-center justify-between">

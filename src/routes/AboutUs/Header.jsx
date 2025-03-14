@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import Whoarewe from '../../components/Whoarewe/Whoarewe'
 
 const Header = () => {
 	return (
@@ -106,7 +107,7 @@ const Header = () => {
 						<NavLink to={'/auth/signup'}>Sign up</NavLink>
 						<NavLink to={'/auth/welcome'}>Log In</NavLink>
 						<NavLink>Our Store</NavLink>
-						<NavLink className="ml-9">Contact Us</NavLink>
+						<NavLink className="ml-9" to={'/whoarewe'}>Contact Us</NavLink>
 					</div>
 				</div>
 			</div>

@@ -7,6 +7,7 @@ import Home from './routes/Home/Customer/HomePage/Home'
 import Setting from './routes/Setting/Setting'
 import Layout from './components/Layout'
 import AboutUs from './routes/AboutUs/AboutUs'
+import Whoarewe from './components/Whoarewe/Whoarewe'
 
 // Import Not Found Page
 import NotFound from './routes/NotFound'
@@ -49,6 +50,9 @@ function App() {
 			<Layout>
 				<Routes>
 					<Route index path="" element={<AboutUs />} />
+
+					<Route path="/whoarewe" element={<Whoarewe />} />
+
 
 					{/* All main pages */}
 					<Route path="customer" element={<CustomerTemplate />}>

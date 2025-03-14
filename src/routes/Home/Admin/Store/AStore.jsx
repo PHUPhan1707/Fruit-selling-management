@@ -1,44 +1,57 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Table from './Table'
-import { useDispatch } from 'react-redux'
-import { addProduct } from '../../../../redux/storeAReducer/storeAThunk'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProduct, storeThunk } from '../../../../redux/storeAReducer/storeAThunk'
 
 const AStore = () => {
-	const [addPro, setAddPro] = useState(false)
-	const [type, setType] = useState('all')
+    const [addPro, setAddPro] = useState(false)
+    const [type, setType] = useState('all')
+    const [productCategory, setProductCategory] = useState('Select category')
+    const [condit, setCondit] = useState('ripe')
+    const [desc, setDes] = useState('')
+    const [proName, setProName] = useState('')
+    const [proPrice, setProPrice] = useState('')
+    const [catId, setCatId] = useState(1)
+    const [file, setFile] = useState(null)
 
-	const [productCategory, setProductCategory] = useState('Select category')
+    const dispatch = useDispatch()
+    const { listProduct } = useSelector(state => state.storeAReducer)
 
-	const [condit, setCondit] = useState('ripe')
-	const [desc, setDes] = useState('')
-	const [proName, setProName] = useState('Banana')
-	const [proPrice, setProPrice] = useState(2)
-	const [catId, setCatId] = useState(1)
-	const [file, setFile] = useState(null)
+    useEffect(() => {
+        dispatch(storeThunk()) // Fetch initial product list
+    }, [dispatch])
 
-	const dispatch = useDispatch()
+    const addProductOnShelf = async () => {
+        if (!proName || !proPrice || !file) {
+            alert('Please fill all required fields and select an image')
+            return
+        }
 
-	const addProductOnShelf = () => {
-		// const newPro = {
-		// 	product_name: proName,
-		// 	selling_price: Number(proPrice),
-		// 	description: desc,
-		// 	product_condition: condit,
-		// 	category_id: catId,
-		// 	product_img: file,
-		// }
-		// dispatch(addProduct(newPro)) // Assuming addProductAction is the action creator
+        const formData = new FormData()
+        formData.append('product_name', proName)
+        formData.append('selling_price', proPrice)
+        formData.append('description', desc)
+        formData.append('product_condition', condit)
+        formData.append('category_id', catId)
+        formData.append('file', file)
 
-		const formData = new FormData()
-		formData.append('product_name', proName)
-		formData.append('selling_price', proPrice)
-		formData.append('description', desc)
-		formData.append('product_condition', condit)
-		formData.append('category_id', catId)
-		formData.append('product_img', file)
+        try {
+            await dispatch(addProduct(formData)).unwrap()
+            setAddPro(false) // Close form after success
+            dispatch(storeThunk()) // Refresh product list
+            // Reset form
+            setProName('')
+            setProPrice('')
+            setDes('')
+            setCondit('ripe')
+            setCatId(1)
+            setFile(null)
+            setProductCategory('Select category')
+        } catch (error) {
+            console.error('Failed to add product:', error)
+        }
+    }
 
-		dispatch(addProduct(formData))
-	}
 	const handleImage = (e) => {
 		setFile(e.target.files[0])
 	}

@@ -20,4 +20,12 @@ export const userService = {
 		console.log('url:', url)
 		return http.put(url, infor)
 	},
+
+	updatePassword: (id, passwordData) => {
+		let url = `/user/${id}/password`;
+		return http.put(url, {
+			currentPassword: passwordData.currentPassword,
+			newPassword: passwordData.newPassword,
+		});
+	},
 }
