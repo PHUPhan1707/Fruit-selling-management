@@ -1,132 +1,130 @@
-import { useState } from 'react'
-import ReOrder from './ReOrder/ReOrder'
-import OrderHistory from './OrderHistory/OrderHistory'
-
-import StockAdjustment from './StockAdjustment/StockAdjustment'
-
-import Inventory from './Inventory/Inventory'
-import SearchBar from '../../../../components/SearchBar/SearchBar'
+import { useState } from 'react';
+import ReOrder from './ReOrder/ReOrder';
+import OrderHistory from './OrderHistory/OrderHistory';
+import StockAdjustment from './StockAdjustment/StockAdjustment';
+import Inventory from './Inventory/Inventory';
+import SearchBar from '../../../../components/SearchBar/SearchBar';
 
 const Warehouse = () => {
-	const [activeTab, setActiveTab] = useState('Inventory')
+  const [activeTab, setActiveTab] = useState('Inventory');
 
-	const headerContainerStyle = {
-		color: '#485935',
-		fontSize: 26,
-		fontFamily: 'Poppins',
-		fontWeight: '800',
-		wordWrap: 'break-word',
-		margin: '63px 0 0 50px',
-		width: '96%',
-	}
+  const headerContainerStyle = {
+    color: '#485935',
+    fontSize: 26,
+    fontFamily: 'Poppins',
+    fontWeight: '800',
+    wordWrap: 'break-word',
+    margin: '63px 0 0 50px',
+    width: '96%',
+  };
 
-	const infoBoxContainerStyle = {
-		display: 'flex',
-		width: '100%',
-		margin: '60px 0 0 60px',
-		gap: '50px',
-	}
+  const infoBoxContainerStyle = {
+    display: 'flex',
+    width: '100%',
+    margin: '60px 0 0 60px',
+    gap: '30px',
+  };
 
-	const infoBoxStyle = (isActive) => ({
-		width: '208px',
-		height: '60px',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		border: '1px solid #485935',
-		borderRadius: '18px',
-		backgroundColor: isActive ? '#485935' : 'white',
-		color: isActive ? 'white' : '#485935',
-		fontSize: '20px',
-		fontWeight: '600',
-		cursor: 'pointer',
-	})
+  const infoBoxStyle = (isActive) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '10px 20px',
+    backgroundColor: 'transparent',
+    color: isActive ? '#485935' : '#7a8a67',
+    fontSize: '20px',
+    fontWeight: '600',
+    cursor: 'pointer',
+    position: 'relative', // For positioning the underline
+  });
 
-	const titleStyle = {
-		fontSize: '22px',
-		marginBottom: '5px',
-	}
+  const underlineStyle = (isActive) => ({
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '3px',
+    backgroundColor: '#485935',
+    width: isActive ? '100%' : '0%', // Animates from 0% to 100% width
+    transition: 'width 0.3s ease', // Smooth left-to-right animation
+  });
 
-	const contentStyle = {
-		display: 'flex',
-		flexDirection: 'column',
-		marginLeft: '50px',
-		overflowX: 'hidden',
-		width: 'calc(100% - 50px)',
-	}
+  const contentStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: '50px',
+    overflowX: 'hidden',
+    width: 'calc(100% - 50px)',
+  };
 
-	const renderContent = () => {
-		switch (activeTab) {
-			case 'Inventory':
-				return (
-					<div style={contentStyle}>
-						<Inventory />
-					</div>
-				)
-			case 'Re-order':
-				return (
-					<div style={contentStyle}>
-						<ReOrder />
-					</div>
-				)
-			case 'Stock adjustment':
-				return (
-					<div style={contentStyle}>
-						<StockAdjustment />
-					</div>
-				)
-			case 'Order history':
-				return (
-					<div style={contentStyle}>
-						<OrderHistory />
-					</div>
-				)
-			default:
-				return <Inventory />
-		}
-	}
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Inventory':
+        return (
+          <div style={contentStyle}>
+            <Inventory />
+          </div>
+        );
+      case 'Re-order':
+        return (
+          <div style={contentStyle}>
+            <ReOrder />
+          </div>
+        );
+      case 'Stock adjustment':
+        return (
+          <div style={contentStyle}>
+            <StockAdjustment />
+          </div>
+        );
+      case 'Order history':
+        return (
+          <div style={contentStyle}>
+            <OrderHistory />
+          </div>
+        );
+      default:
+        return (
+          <div style={contentStyle}>
+            <Inventory />
+          </div>
+        );
+    }
+  };
 
-	return (
-		<div style={{ overflowX: 'hidden' }}>
-			<div style={headerContainerStyle}>
-				<div style={{ display: 'flex' }}>
-					<div style={{ width: '80%' }}>
-						<div>Warehouse Management</div>
-					</div>
-					<SearchBar />
-				</div>
-			</div>
+  const tabs = [
+    { label: 'Inventory', key: 'Inventory' },
+    { label: 'Re-order', key: 'Re-order' },
+    { label: 'Stock adjustment', key: 'Stock adjustment' },
+    { label: 'Order history', key: 'Order history' },
+  ];
 
-			<div style={infoBoxContainerStyle}>
-				<div
-					style={infoBoxStyle(activeTab === 'Inventory')}
-					onClick={() => setActiveTab('Inventory')}
-				>
-					<div style={titleStyle}>Inventory</div>
-				</div>
-				<div
-					style={infoBoxStyle(activeTab === 'Re-order')}
-					onClick={() => setActiveTab('Re-order')}
-				>
-					<div style={titleStyle}>Re-order</div>
-				</div>
-				<div
-					style={infoBoxStyle(activeTab === 'Stock adjustment')}
-					onClick={() => setActiveTab('Stock adjustment')}
-				>
-					<div style={titleStyle}>Stock adjustment</div>
-				</div>
-				<div
-					style={infoBoxStyle(activeTab === 'Order history')}
-					onClick={() => setActiveTab('Order history')}
-				>
-					<div style={titleStyle}>Order history</div>
-				</div>
-			</div>
+  return (
+    <div style={{ overflowX: 'hidden' }}>
+      <div style={headerContainerStyle}>
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: '80%', fontSize: '36px' }}>
+            <div>Warehouse Management</div>
+          </div>
+          <SearchBar />
+        </div>
+      </div>
 
-			{renderContent()}
-		</div>
-	)
-}
+      <div style={infoBoxContainerStyle}>
+        {tabs.map((tab) => (
+          <div
+            key={tab.key}
+            style={infoBoxStyle(activeTab === tab.key)}
+            onClick={() => setActiveTab(tab.key)}
+          >
+            {tab.label}
+            <div style={underlineStyle(activeTab === tab.key)} />
+          </div>
+        ))}
+      </div>
 
-export default Warehouse
+      {renderContent()}
+    </div>
+  );
+};
+
+export default Warehouse;

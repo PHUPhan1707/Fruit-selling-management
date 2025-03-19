@@ -79,10 +79,12 @@ const StockAdjustment = () => {
 
 	const thStyle = {
 		color: '#485935',
-		fontWeight: 500,
+		fontWeight: 600,
 		fontSize: '20px',
 		border: '1px solid #485935',
 		height: '50px',
+		padding: '10px',
+		backgroundColor: '#CFCFCA',
 	}
 
 	const tdStyle = {
@@ -99,98 +101,115 @@ const StockAdjustment = () => {
 
 	return (
 		<div>
-			<div className="relative h-[156px] w-[978px]" style={{ margin: '30px' }}>
-				<div
-					className="absolute left-0 top-0 h-[156px] w-[978px] border"
-					style={{ color: '#485935' }}
-				/>
-				<div className="absolute left-[12px] top-[63px] h-20 w-[215px]">
+			<div>
+				<div className="relative h-[156px] w-[978px]" style={{ margin: '30px', backgroundColor: '#f7faf6', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+					{/* Outer Container */}
 					<div
-						className="absolute left-0 top-0 h-20 w-[215px] border"
-						style={{ color: '#485935' }}
+						className="absolute left-0 top-0 h-[156px] w-[978px]"
+						style={{ color: '#485935', border: '1px solid #485935', borderRadius: '8px' }}
 					/>
-					<div
-						className="text-xl absolute left-[13px] top-[10px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 400 }}
-					>
-						Total Products
+
+					{/* Warehouse Total Products */}
+					<div className="absolute left-[12px] top-[63px] h-20 w-[215px]">
+						<div
+							className="absolute left-0 top-0 h-20 w-[215px] border"
+							style={{ border: '1px solid #485935', backgroundColor: '#ffffff', borderRadius: '8px', padding: '10px' }}
+						/>
+						<div
+							className="text-lg absolute left-0 top-[10px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 400 }}
+						>
+							Total Products
+						</div>
+						<div
+							className="text-xl absolute left-0 top-[40px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 700 }}
+						>
+							{warehouseSummary.warehouseTotalQuantity} kg
+						</div>
 					</div>
-					<div
-						className="text-xl absolute left-[70px] top-[40px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 700 }}
-					>
-						{warehouseSummary.warehouseTotalQuantity} kg
+
+					{/* Warehouse Low-Stock Alerts */}
+					<div className="absolute left-[257px] top-[63px] h-20 w-[215px]">
+						<div
+							className="absolute left-0 top-0 h-20 w-[215px] border"
+							style={{ border: '1px solid #485935', backgroundColor: '#ffffff', borderRadius: '8px', padding: '10px' }}
+						/>
+						<div
+							className="text-lg absolute left-0 top-[10px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 400 }}
+						>
+							Low-Stock Alerts
+						</div>
+						<div
+							className="text-xl absolute left-0 top-[40px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 700 }}
+						>
+							{warehouseSummary.lowStockWarehouseCount} products
+						</div>
 					</div>
-				</div>
-				<div className="absolute left-[257px] top-[63px] h-20 w-[215px]">
+
+					{/* Shelf Total Products */}
+					<div className="absolute left-[506px] top-[63px] h-20 w-[215px]">
+						<div
+							className="absolute left-0 top-0 h-20 w-[215px] border"
+							style={{ border: '1px solid #485935', backgroundColor: '#ffffff', borderRadius: '8px', padding: '10px' }}
+						/>
+						<div
+							className="text-lg absolute left-0 top-[10px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 400 }}
+						>
+							Total Products
+						</div>
+						<div
+							className="text-xl absolute left-0 top-[40px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 700 }}
+						>
+							{shelfSummary.shelfTotalQuantity} kg
+						</div>
+					</div>
+
+					{/* Shelf Low-Stock Alerts */}
+					<div className="absolute left-[751px] top-[63px] h-20 w-[215px]">
+						<div
+							className="absolute left-0 top-0 h-20 w-[215px] border"
+							style={{ border: '1px solid #485935', backgroundColor: '#ffffff', borderRadius: '8px', padding: '10px' }}
+						/>
+						<div
+							className="text-lg absolute left-0 top-[10px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 400 }}
+						>
+							Low-Stock Alerts
+						</div>
+						<div
+							className="text-xl absolute left-0 top-[40px] w-full text-center font-['Poppins']"
+							style={{ color: '#485935', fontWeight: 700 }}
+						>
+							{shelfSummary.lowStockShelfCount} products
+						</div>
+					</div>
+
+					{/* Divider */}
 					<div
-						className="absolute left-0 top-0 h-20 w-[215px] border"
-						style={{ color: '#485935' }}
+						className="absolute left-[489px] top-0 h-[0px] w-[156px] origin-top-left rotate-90"
+						style={{ border: '0.5px dashed #485935' }}
 					/>
+
+					{/* Warehouse Summary Title */}
 					<div
-						className="text-xl absolute left-[15px] top-[10px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 400 }}
+						className="text-lg absolute left-[12px] top-[15px] text-center font-['Poppins']"
+						style={{ color: '#485935', fontWeight: 500 }}
 					>
-						Low-stock alerts
+						Warehouse Summary
 					</div>
+
+					{/* Shelf Summary Title */}
 					<div
-						className="text-xl absolute left-[52px] top-[40px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 700 }}
+						className="text-lg absolute left-[506px] top-[15px] text-center font-['Poppins']"
+						style={{ color: '#485935', fontWeight: 500 }}
 					>
-						{warehouseSummary.lowStockWarehouseCount} products
+						Shelf Summary
 					</div>
-				</div>
-				<div className="absolute left-[506px] top-[63px] h-20 w-[215px]">
-					<div
-						className="absolute left-0 top-0 h-20 w-[215px] border"
-						style={{ color: '#485935' }}
-					/>
-					<div
-						className="text-xl absolute left-[12px] top-[10px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 400 }}
-					>
-						Total Products
-					</div>
-					<div
-						className="text-xl absolute left-[57px] top-[40px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 700 }}
-					>
-						{shelfSummary.shelfTotalQuantity} kg
-					</div>
-				</div>
-				<div className="absolute left-[751px] top-[63px] h-20 w-[215px]">
-					<div
-						className="absolute left-0 top-0 h-20 w-[215px] border"
-						style={{ color: '#485935' }}
-					/>
-					<div
-						className="text-xl absolute left-[15px] top-[10px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 400 }}
-					>
-						Low-stock alerts
-					</div>
-					<div
-						className="text-xl absolute left-[73px] top-[40px] text-center font-['Poppins']"
-						style={{ color: '#485935', fontWeight: 700 }}
-					>
-						{shelfSummary.lowStockShelfCount} products
-					</div>
-				</div>
-				<div
-					className="absolute left-[489px] top-0 h-[0px] w-[156px] origin-top-left rotate-90"
-					style={{ border: '0.5px solid #485935' }}
-				></div>
-				<div
-					className="text-lg absolute left-[12px] top-[15px] text-center font-['Poppins']"
-					style={{ color: '#485935', fontWeight: 100 }}
-				>
-					Warehouse Summary
-				</div>
-				<div
-					className="text-lg absolute left-[506px] top-[15px] text-center font-['Poppins']"
-					style={{ color: '#485935', fontWeight: 100 }}
-				>
-					Shelf Summary
 				</div>
 			</div>
 

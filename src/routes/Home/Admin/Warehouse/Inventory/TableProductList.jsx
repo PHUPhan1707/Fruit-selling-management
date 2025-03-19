@@ -66,58 +66,63 @@ const TableProductList = () => {
 				style={{
 					minWidth: '100%',
 					borderCollapse: 'collapse',
-					border: '1px solid #485935',
+					//border: '1px solid #485935',
 				}}
 			>
 				<thead>
 					<tr>
 						<th
 							style={{
-								border: '1px solid #485935',
+								//border: '1px solid #485935',
 								padding: '8px',
 								textAlign: 'center',
 								fontWeight: 'bold',
 								width: '85px',
+								backgroundColor: '#CFCFCA',
+								padding: '10px',
 							}}
 						></th>
 						<th
 							style={{
-								border: '1px solid #485935',
+								//border: '1px solid #485935',
 								color: '#485935',
 								fontSize: 20,
 								fontFamily: 'Poppins',
-								fontWeight: '500',
+								fontWeight: '600',
 								wordWrap: 'break-word',
 								textAlign: 'center',
-								fontWeight: 'bold',
+								backgroundColor: '#CFCFCA',
+								padding: '10px',
 							}}
 						>
 							Name
 						</th>
 						<th
 							style={{
-								border: '1px solid #485935',
+								//border: '1px solid #485935',
 								color: '#485935',
 								fontSize: 20,
 								fontFamily: 'Poppins',
-								fontWeight: '500',
+								fontWeight: '600',
 								wordWrap: 'break-word',
 								textAlign: 'center',
-								fontWeight: 'bold',
+								backgroundColor: '#CFCFCA',
+								padding: '10px',
 							}}
 						>
 							Quantity in stock
 						</th>
 						<th
 							style={{
-								border: '1px solid #485935',
+								//border: '1px solid #485935',
 								color: '#485935',
 								fontSize: 20,
 								fontFamily: 'Poppins',
-								fontWeight: '500',
+								fontWeight: '600',
 								wordWrap: 'break-word',
 								textAlign: 'center',
-								fontWeight: 'bold',
+								backgroundColor: '#CFCFCA',
+								padding: '10px',
 							}}
 						>
 							Status
@@ -139,8 +144,8 @@ const TableProductList = () => {
 									style={{
 										padding: '8px',
 										textAlign: 'center',
-										borderLeft: '1px solid #485935',
-										borderRight: '1px solid #485935',
+										//borderLeft: '1px solid #485935',
+										//borderRight: '1px solid #485935',
 									}}
 								>
 									<img
@@ -157,8 +162,8 @@ const TableProductList = () => {
 										fontWeight: '400',
 										wordWrap: 'break-word',
 										textAlign: 'center',
-										borderLeft: '1px solid #485935',
-										borderRight: '1px solid #485935',
+										//borderLeft: '1px solid #485935',
+										//borderRight: '1px solid #485935',
 									}}
 								>
 									{product.product_name}
@@ -171,8 +176,8 @@ const TableProductList = () => {
 										fontWeight: '400',
 										wordWrap: 'break-word',
 										textAlign: 'center',
-										borderLeft: '1px solid #485935',
-										borderRight: '1px solid #485935',
+										//borderLeft: '1px solid #485935',
+										//borderRight: '1px solid #485935',
 									}}
 								>
 									{totalQuantity}
