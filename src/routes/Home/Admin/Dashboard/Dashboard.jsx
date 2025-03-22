@@ -16,6 +16,26 @@ const Dashboard = () => {
 	const dispatch = useDispatch()
 	const { data } = useSelector((state) => state.dashboardReducer)
 
+	const sampleWeeklyRevenue = [
+		{ date: "Saturday", totalRevenue: 1000 },
+		{ date: "Sunday", totalRevenue: 1800 },
+		{ date: "Monday", totalRevenue: 1500 },
+		{ date: "Tuesday", totalRevenue: 2800 },
+		{ date: "Wednesday", totalRevenue: 2000 },
+		{ date: "Thursday", totalRevenue: 3000 },
+		{ date: "Friday", totalRevenue: 2200 },
+	];
+
+	const sampleWeeklyOrders = [
+		{ date: "Saturday", placedOrders: 10, packagedOrders: 5, shippedOrders: 2 },
+		{ date: "Sunday", placedOrders: 15, packagedOrders: 8, shippedOrders: 3 },
+		{ date: "Monday", placedOrders: 12, packagedOrders: 6, shippedOrders: 4 },
+		{ date: "Tuesday", placedOrders: 20, packagedOrders: 10, shippedOrders: 5 },
+		{ date: "Wednesday", placedOrders: 18, packagedOrders: 7, shippedOrders: 3 },
+		{ date: "Thursday", placedOrders: 25, packagedOrders: 12, shippedOrders: 6 },
+		{ date: "Friday", placedOrders: 22, packagedOrders: 9, shippedOrders: 4 },
+	];
+
 	useEffect(() => {
 		dispatch(dashboardThunk())
 	}, [dispatch])
@@ -31,8 +51,8 @@ const Dashboard = () => {
 				<span className="text-[1.25rem] font-medium">Logistics Overview</span>
 			</div>
 
-			<div className="flex space-x-4">
-				<div className="w-[80%]">
+			<div className="space-x-4 space-y-4">
+				<div className="w-[100%]">
 					<Total
 						revenue={data?.revenue}
 						cost={data?.cost}
@@ -40,10 +60,10 @@ const Dashboard = () => {
 						productionVolume={data?.productionVolume}
 					/>
 				</div>
-				<div className="w-[20%] space-y-4">
+				{/* <div className="w-[20%] space-y-4">
 					<BestSelling bestSellingProducts={data?.bestSellingProducts} />
 					<WasteProduct />
-				</div>
+				</div> */}
 			</div>
 
 			<div className="flex space-x-8">
@@ -56,7 +76,8 @@ const Dashboard = () => {
 					<ShipOverview />
 				</div>
 				<div className="w-[60%]">
-					<OrderChart weeklyOrders={data?.weeklyOrders} />
+					{/* <OrderChart weeklyOrders={data?.weeklyOrders} /> */}
+					<OrderChart weeklyOrders={sampleWeeklyOrders} />
 				</div>
 			</div>
 
@@ -74,16 +95,18 @@ const Dashboard = () => {
 					/>
 				</div>
 				<div className="w-[65%]">
-					<WeeklyRevenue weeklyRevenue={data?.weeklyRevenue} />
+					{/* <WeeklyRevenue weeklyRevenue={data?.weeklyRevenue} /> */}
+					<WeeklyRevenue weeklyRevenue={sampleWeeklyRevenue} />
 				</div>
 			</div>
 			<div className="flex space-x-8">
-				<div className="w-[25%]">
-					<NewCus customers={data?.customers} />
-				</div>
 				<div className="w-[75%]">
 					<Cupon />
 				</div>
+				<div className="w-[25%]">
+					<NewCus customers={data?.customers} />
+				</div>
+
 			</div>
 		</div>
 	)
