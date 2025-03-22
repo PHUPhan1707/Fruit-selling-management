@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 const NewCus = ({ customers }) => {
 	return (
-		<div className="relative h-full rounded-xl border p-2">
+		<div className="relative h-full rounded-xl p-2 bg-green_dark1">
 			<div className="absolute leading-3">
 				<i className="fa fa-circle rounded-full border border-green_dark1 text-[0.8rem] text-offwhite"></i>
 			</div>
-			<div className="flex justify-between p-4 py-8 pb-2 text-green_dark1">
+			<div className="flex justify-between p-4 py-8 pb-2 text-offwhite">
 				<span className="text-[1.125rem] font-bold">
 					<span>New customers</span>
-					<div className="text-[1.5rem] font-semibold text-green_dark1">
+					<div className="text-[1.5rem] font-semibold text-offwhite">
 						{customers}
 					</div>
 				</span>
@@ -18,11 +18,11 @@ const NewCus = ({ customers }) => {
 			</div>
 			<div className="px-2">
 				<div className="flex items-center space-x-2">
-					<div className="flex items-center space-x-1 rounded-full bg-green_bright2 px-3 py-1 text-green_bright1">
-						<i className="fa fa-arrow-down h-4 w-4"></i>
-						<span className="text-[0.75rem]">25%</span>
+					<div className="flex items-center space-x-1 rounded-full bg-[#67aa7b] px-3 py-1 text-green_bright1">
+						<i className="fa fa-arrow-down h-4 w-4 text-offwhite"></i>
+						<span className="text-[0.75rem] text-offwhite">25%</span>
 					</div>
-					<div className="text-[0.75rem] text-green_dark1">( in 7 days )</div>
+					<div className="text-[0.75rem] text-offwhite">( in 7 days )</div>
 				</div>
 			</div>
 		</div>

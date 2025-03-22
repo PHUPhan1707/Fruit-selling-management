@@ -42,7 +42,7 @@ const NeedHelps = () => {
 					/>
 				</svg>
 				<NavLink
-					className="absolute top-0 flex h-full w-full items-center justify-center rounded-[15px] transition duration-150 ease-in-out hover:shadow-[10px_10px_4px_0px_rgba(0,0,0,0.25)]"
+					className="absolute z-[50] top-0 flex h-full w-full items-center justify-center rounded-[15px] transition duration-150 ease-in-out hover:shadow-[10px_10px_4px_0px_rgba(0,0,0,0.25)]"
 					style={state}
 					onClick={handleClick}
 				>

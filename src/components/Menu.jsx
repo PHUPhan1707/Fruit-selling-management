@@ -20,14 +20,14 @@ export const NavItemCustomer = [
 		link: '/customer/store',
 		icon: 'shopping-cart',
 		subItems: [
-            { name: 'Banana', link: '/customer/store/banana-store' },
-            { name: 'Mango', link: '/customer/store/mango-store' },
-            { name: 'Pineapple', link: '/customer/store/pineapple-store' },
-            { name: 'Coconut', link: '/customer/store/coconut-store' },
-            { name: 'Papaya', link: '/customer/store/papaya-store' },
-            { name: 'Durian', link: '/customer/store/durian-store' },
-            { name: 'Berries', link: '/customer/store/berries-store' },
-        ],
+			{ name: 'Banana', link: '/customer/store/banana-store' },
+			{ name: 'Mango', link: '/customer/store/mango-store' },
+			{ name: 'Pineapple', link: '/customer/store/pineapple-store' },
+			{ name: 'Coconut', link: '/customer/store/coconut-store' },
+			{ name: 'Papaya', link: '/customer/store/papaya-store' },
+			{ name: 'Durian', link: '/customer/store/durian-store' },
+			{ name: 'Berries', link: '/customer/store/berries-store' },
+		],
 	},
 	{
 		name: 'Order',
@@ -141,8 +141,8 @@ const Menu = () => {
 							to={item.link}
 							onClick={handleLogoutClick}
 							className={`block w-full space-x-4 p-4 ${location.pathname === item.link
-									? 'no-hover text-white bg-green_light3'
-									: 'text-offwhite'
+								? 'no-hover text-white bg-green_light3'
+								: 'text-offwhite'
 								} ${location.pathname === item.link
 									? ''
 									: 'hover:bg-green_light3 hover:text-green_dark1'
@@ -157,8 +157,8 @@ const Menu = () => {
 							key={index}
 							to={item.link}
 							className={`block w-full space-x-4 p-4 ${location.pathname === item.link
-									? 'no-hover text-white bg-green_light3'
-									: 'text-offwhite'
+								? 'no-hover text-white bg-green_light3'
+								: 'text-offwhite'
 								} ${location.pathname === item.link
 									? ''
 									: 'hover:bg-green_light3 hover:text-green_dark1'
@@ -171,7 +171,7 @@ const Menu = () => {
 					),
 				)}
 			</div>
-			<div className="absolute bottom-5 right-0 translate-x-1/2">
+			<div className="absolute bottom-5 translate-x-[16px]">
 				<NeedHelps />
 			</div>
 		</div>
