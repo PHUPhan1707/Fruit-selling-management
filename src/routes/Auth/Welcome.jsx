@@ -31,7 +31,7 @@ const Welcome = () => {
 					height: '36.375rem',
 					marginTop: '2rem',
 					borderRadius: '0.935rem',
-					 
+
 				}}
 			>
 				<div className="p-8 text-center">

@@ -15,6 +15,7 @@ import Welcome from './routes/Auth/Welcome'
 import Login from './routes/Auth/Login'
 import Signup from './routes/Auth/Signup'
 
+
 // Import Customer Pages
 import CusStore from './routes/Home/Customer/Store/CusStore'
 import CusOrder from './routes/Home/Customer/Order/CusOrder'
@@ -74,6 +75,7 @@ function App() {
 						<Route path="welcome" element={<Welcome />} />
 						<Route path="login" element={<Login />} />
 						<Route path="signup" element={<Signup />} />
+
 					</Route>
 
 					{/* About */}

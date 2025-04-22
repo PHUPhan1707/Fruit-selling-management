@@ -4,6 +4,7 @@ const WhatSetsUsApart = () => {
 			{/*What sets us apart?*/}
 			<div
 				style={{
+					
 					height: '128vh',
 					backgroundColor: 'white',
 					display: 'flex',
@@ -16,7 +17,7 @@ const WhatSetsUsApart = () => {
 				<div
 					style={{
 						width: '80%',
-						border: '5px solid black',   
+						border: '5px solid black',
 						borderRadius: '15px',  // Bo tròn góc
 						padding: '40px',
 						display: 'flex',
@@ -45,7 +46,7 @@ const WhatSetsUsApart = () => {
 								top: '50%', // Căn chính giữa chữ
 								left: -20,
 								right: -20,
-								
+
 								height: '40px', // Điều chỉnh độ dày để che viền
 								backgroundColor: 'white',
 								zIndex: -3, // Đặt dưới chữ nhưng trên viền
@@ -66,22 +67,20 @@ const WhatSetsUsApart = () => {
 							fontWeight: '500',
 							textAlign: 'center',
 							marginTop: '40px',
-							
+
 						}}
 					>
-						It's our constant dedication to sourcing from trusted suppliers who
-						value quality as much as we do. Any fruit products in Manach has a
-						specific origin, being gathered directly from farmers that value
-						premium quality and sustainable farming methods.
+						Tailor your culinary adventure with our personalized options. We source only the finest, locally-sourced ingredients to ensure each meal is a masterpiece.
 					</div>
 
 					{/* Hình ảnh */}
+
 					<div
 						style={{
-							display: 'grid',
-							gridTemplateColumns: 'repeat(3, minmax(300px, 1fr))',
-							marginTop: '60px',
-							gridGap: '50px',
+							display: "grid",
+							gridTemplateColumns: "repeat(2, minmax(300px, 1fr))", // 2 cột
+							gridGap: "50px",
+							marginTop: "60px",
 						}}
 					>
 						<div className="m-auto h-fit w-full">
@@ -89,10 +88,22 @@ const WhatSetsUsApart = () => {
 								src="/src/assets/pic_1.png"
 								alt=""
 								style={{
-									width: '300px',
-									height: '350px',
-									borderRadius: '10px', // Bo tròn ảnh
-									objectFit: 'cover',  // Ảnh luôn vừa khung
+									width: "300px",
+									height: "350px",
+									borderRadius: "10px",
+									objectFit: "cover",
+								}}
+							/>
+						</div>
+						<div className="m-auto h-fit w-full">
+							<img
+								src="/src/assets/pic_1.png"
+								alt=""
+								style={{
+									width: "300px",
+									height: "350px",
+									borderRadius: "10px",
+									objectFit: "cover",
 								}}
 							/>
 						</div>
@@ -101,10 +112,10 @@ const WhatSetsUsApart = () => {
 								src="/src/assets/pic_2.png"
 								alt=""
 								style={{
-									width: '300px',
-									height: '350px',
-									borderRadius: '10px',
-									objectFit: 'cover',
+									width: "300px",
+									height: "350px",
+									borderRadius: "10px",
+									objectFit: "cover",
 								}}
 							/>
 						</div>
@@ -113,20 +124,20 @@ const WhatSetsUsApart = () => {
 								src="/src/assets/pic_3.png"
 								alt=""
 								style={{
-									width: '300px',
-									height: '350px',
-									borderRadius: '10px',
-									objectFit: 'cover',
+									width: "300px",
+									height: "350px",
+									borderRadius: "10px",
+									objectFit: "cover",
 								}}
 							/>
 						</div>
-						
 					</div>
+
 				</div>
 			</div>
 
 			{/*What are you craving for?*/}
-			<div className="flex">
+			<div className="flex   mx-auto mt-20">
 				<div>
 					<img
 						src="/src/assets/pic_4.png"

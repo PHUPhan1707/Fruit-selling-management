@@ -16,8 +16,8 @@ const AuthTemplate = () => {
 					backgroundImage: 'url(/src/assets/background_login.jpg)',
 					backgroundPosition: 'center',  
 					backgroundRepeat: 'no-repeat', 
-					backgroundSize: 'cover', // Lấp đầy nhưng vẫn giữ tỷ lệ
-					backgroundAttachment: 'fixed', // Cố định hình nền khi cuộn
+					backgroundSize: 'cover',
+					backgroundAttachment: 'fixed', 
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center', 
