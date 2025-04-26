@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { userThunk } from '../../redux/userReducer/userThunk'
+import { userLocal } from '../../service/userLocal'
 
 const Login = () => {
 	const [email, setEmail] = useState('')
@@ -27,23 +28,37 @@ const Login = () => {
 
 		dispatch(userThunk(data))
 			.then((res) => {
-				// Kiểm tra xem login có thành công không
 				if (res.type === 'userReducer/loginThunk/fulfilled' && res.payload) {
-					console.log(res.payload)
-					if (res.payload.role_id == 2) {
-						navigate('/customer/home')
+					console.log('Login response:', res.payload)
+
+					// Get user data from Redux store after successful login
+					const userId = userLocal.getUserId()
+					const roleId = parseInt(localStorage.getItem('roleId') || 2)
+
+					console.log('User ID:', userId)
+					console.log('Role ID:', roleId)
+
+					// Check if we have a valid userId
+					if (userId) {
+						// Điều hướng dựa vào role_id
+						if (roleId === 2) {
+							navigate('/customer/home')
+						} else {
+							navigate('/admin/home')
+						}
 					} else {
-						navigate('/admin/home')
+						setError('Could not retrieve user information')
 					}
-				} else {
-					setError(res.payload || 'Login failed. Please check your credentials.')
+				} else if (res.error) {
+					// Handle login error
+					const errorMessage = res.error.message || 'Login failed. Please check your credentials.'
+					setError(errorMessage)
 				}
 			})
 			.catch((err) => {
-				console.log(err)
+				console.error('Login error:', err)
 				setError('Login failed. Please check your credentials.')
 			})
-
 	}
 
 	return (

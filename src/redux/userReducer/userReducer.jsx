@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { editProfile, getInfor, postSignUp, userThunk } from './userThunk'
 import { userLocal } from '../../service/userLocal'
+import { decodeJWT } from '../../utils/jwtUtils'
 
 const initialState = {
 	userId: userLocal.getUserId(),
@@ -25,11 +26,16 @@ const userReducer = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(userThunk.fulfilled, (state, action) => {
-				userLocal.setId(action.payload.user_id)
-				userLocal.setRoleName(action.payload.role_id)
-				state.userId = action.payload.user_id
-				state.roleId = action.payload.role_id
-				state.roleName = userLocal.getRoleName()
+				const tokenData = decodeJWT(action.payload);
+				if (tokenData && tokenData.data) {
+					const { user_id, role_id } = tokenData.data;
+					userLocal.setId(user_id);
+					userLocal.setRoleName(role_id);
+					localStorage.setItem('roleId', role_id);
+					state.userId = user_id;
+					state.roleId = role_id;
+					state.roleName = userLocal.getRoleName();
+				}
 			})
 			.addCase(getInfor.fulfilled, (state, action) => {
 				let data = action.payload.data.content

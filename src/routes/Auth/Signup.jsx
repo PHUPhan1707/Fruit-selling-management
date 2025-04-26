@@ -58,7 +58,7 @@ const Signup = () => {
 				address: '123 Govap',
 				user_name: values.username,
 				bank_account: values.payment,
-				user_password: values.password,
+				password: values.password,
 				phone: values.phone,
 				email: values.email,
 			}
