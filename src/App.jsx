@@ -14,6 +14,7 @@ import AuthTemplate from './routes/Auth/AuthTemplate'
 import Welcome from './routes/Auth/Welcome'
 import Login from './routes/Auth/Login'
 import Signup from './routes/Auth/Signup'
+import ForgotPassword from './routes/Auth/ForgotPassword'
 
 
 // Import Customer Pages
@@ -75,8 +76,10 @@ function App() {
 						<Route path="welcome" element={<Welcome />} />
 						<Route path="login" element={<Login />} />
 						<Route path="signup" element={<Signup />} />
-
 					</Route>
+
+					{/* Forgot Password - Standalone */}
+					<Route path="auth/forgot-password" element={<ForgotPassword />} />
 
 					{/* About */}
 					<Route path="/setting" element={<Setting />} />

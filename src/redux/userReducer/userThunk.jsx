@@ -68,3 +68,48 @@ export const postSignUp = createAsyncThunk(
 		}
 	},
 )
+
+export const forgotPasswordThunk = createAsyncThunk(
+	'userReducer/forgotPassword',
+	async (email, { rejectWithValue }) => {
+		try {
+			const response = await userService.forgotPassword(email)
+			message.success('Verification code sent to your email')
+			return response.data.content
+		} catch (error) {
+			const errorMessage = error.response?.data?.message || 'Failed to send verification code'
+			message.error(errorMessage)
+			return rejectWithValue(errorMessage)
+		}
+	},
+)
+
+export const verifyCodeThunk = createAsyncThunk(
+	'userReducer/verifyCode',
+	async (code, { rejectWithValue }) => {
+		try {
+			const response = await userService.verifyCode(code)
+			message.success('Code verified successfully')
+			return response.data.content
+		} catch (error) {
+			const errorMessage = error.response?.data?.message || 'Invalid verification code'
+			message.error(errorMessage)
+			return rejectWithValue(errorMessage)
+		}
+	},
+)
+
+export const resetPasswordThunk = createAsyncThunk(
+	'userReducer/resetPassword',
+	async ({ code, newPassword }, { rejectWithValue }) => {
+		try {
+			const response = await userService.resetPassword(code, newPassword)
+			message.success('Password reset successfully')
+			return response.data.content
+		} catch (error) {
+			const errorMessage = error.response?.data?.message || 'Failed to reset password'
+			message.error(errorMessage)
+			return rejectWithValue(errorMessage)
+		}
+	},
+)

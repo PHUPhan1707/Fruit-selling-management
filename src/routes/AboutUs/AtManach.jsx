@@ -28,7 +28,7 @@ const AtManach = () => {
 
 
       {/* Slider */}
-      <div className="container mt-6">
+      <div className="container mt-6 ml-20  ">
         <div
           className="row d-flex align-items-center justify-content-center"
           style={{
