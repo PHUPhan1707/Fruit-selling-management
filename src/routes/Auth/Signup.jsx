@@ -6,6 +6,7 @@ import { postSignUp } from '../../redux/userReducer/userThunk'
 import { useState, useRef, useEffect } from 'react'
 import { message } from 'antd'
 import { userService } from '../../service/userService'
+import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined, CreditCardOutlined } from '@ant-design/icons'
 
 const Signup = () => {
 	const dispatch = useDispatch()
@@ -208,6 +209,16 @@ const Signup = () => {
 							<div className="flex text-left">
 								<div className="mx-auto w-5/6 space-y-4">
 									<div className="mx-12 text-left">
+										<span
+											style={{
+												color: 'black',
+												fontSize: '1rem',
+												fontWeight: 300,
+											}}
+										>
+											<UserOutlined className="mr-2" />
+											Name
+										</span>
 										<label className="flex w-50 items-center rounded-md border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
 											<input
 												type="username"
@@ -218,7 +229,7 @@ const Signup = () => {
 												}}
 												name="name"
 												className="h-[1.5rem] grow bg-transparent text-center text-[1.5rem] text-white outline-none placeholder-white"
-												placeholder="Enter your username"
+												placeholder="Enter your name"
 												onChange={formik.handleChange}
 												value={formik.values.name}
 											/>
@@ -236,6 +247,7 @@ const Signup = () => {
 												fontWeight: 300,
 											}}
 										>
+											<UserOutlined className="mr-2" />
 											Username
 										</span>
 										<label className="flex w-50 items-center rounded-md border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
@@ -265,6 +277,7 @@ const Signup = () => {
 												fontWeight: 300,
 											}}
 										>
+											<LockOutlined className="mr-2" />
 											Password
 										</span>
 										<label className="flex w-50 items-center rounded-md border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
@@ -294,6 +307,7 @@ const Signup = () => {
 												fontWeight: 300,
 											}}
 										>
+											<MailOutlined className="mr-2" />
 											Email
 										</span>
 										<label className="flex w-50 items-center rounded-md border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
@@ -323,6 +337,7 @@ const Signup = () => {
 												fontWeight: 300,
 											}}
 										>
+											<CreditCardOutlined className="mr-2" />
 											Payment
 										</span>
 										<label className="flex w-50 items-center rounded-md border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">
@@ -352,6 +367,7 @@ const Signup = () => {
 												fontWeight: 300,
 											}}
 										>
+											<PhoneOutlined className="mr-2" />
 											Phone
 										</span>
 										<label className="flex w-50 items-center rounded-md border-2 border-[rgba(103,255,90,0.8)] px-2 py-1 text-center">

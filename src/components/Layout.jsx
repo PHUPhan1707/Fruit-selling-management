@@ -9,6 +9,7 @@ const notMenu = [
 	'/about-us',
 	'/',
 	' ',
+	'/auth/forgot-password'
 ]
 
 function Layout({ children }) {
