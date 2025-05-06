@@ -28,6 +28,3 @@ yarn
 6/ Run using: 
 yarn start
 
-7/ Download PostMan to test API
--> Text Minh Doan the email to be invited to the collaboration,
- which have all the APIs listed for you to test
